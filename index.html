@@ -129,9 +129,26 @@
   .hero-stats .num{ font-size:22px; font-weight:800; font-family: ui-monospace,'SF Mono',Menlo,'Cascadia Mono',Consolas,monospace; }
   .hero-stats .lbl{ font-size:12px; color:var(--ink-faint); margin-top:3px; }
 
+  /* ===== Site header ===== */
+  .site-header{
+    position:sticky; top:0; z-index:30;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    padding:13px 24px;
+    background:color-mix(in srgb, var(--bg) 90%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .site-header .brand{
+    display:flex; align-items:center; gap:8px;
+    font-family: ui-monospace,'SF Mono',Menlo,'Cascadia Mono',Consolas,monospace;
+    font-size:13px; font-weight:700; color:var(--ink); white-space:nowrap;
+  }
+  .site-header .brand .mark{ color:var(--accent); }
+  .site-header .toggles-row{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+
   /* ===== Filter bar ===== */
   .filterbar{
-    position:sticky; top:0; z-index:20;
+    position:sticky; top:53px; z-index:20;
     background:color-mix(in srgb, var(--bg) 85%, transparent);
     backdrop-filter: blur(10px);
     border-bottom:1px solid var(--line);
@@ -323,6 +340,22 @@
   footer p{ max-width:70ch; }
 </style>
 
+<header class="site-header">
+  <div class="brand"><span class="mark">🎴</span>オンチェーントレカ研究所</div>
+  <div class="toggles-row">
+    <div class="filter-group toggles">
+      <span class="glabel">Theme</span>
+      <button class="fbtn theme-btn" data-theme-choice="light">Light</button>
+      <button class="fbtn theme-btn" data-theme-choice="dark">Dark</button>
+    </div>
+    <div class="filter-group toggles">
+      <span class="glabel">Lang</span>
+      <button class="fbtn lang-btn" data-lang="ja">日本語</button>
+      <button class="fbtn lang-btn" data-lang="en">EN</button>
+    </div>
+  </div>
+</header>
+
 <div class="hero">
   <div class="hero-bg"></div>
   <div class="wrap">
@@ -353,16 +386,6 @@
       <button class="fbtn" data-filter="status" data-value="beta" data-i18n-key="status_beta">ベータ・限定</button>
       <button class="fbtn" data-filter="status" data-value="warn" data-i18n-key="status_warn">縮小傾向</button>
       <button class="fbtn" data-filter="status" data-value="risk" data-i18n-key="status_risk">要警戒・終了</button>
-    </div>
-    <div class="filter-group toggles">
-      <span class="glabel">Theme</span>
-      <button class="fbtn theme-btn" data-theme-choice="light">Light</button>
-      <button class="fbtn theme-btn" data-theme-choice="dark">Dark</button>
-    </div>
-    <div class="filter-group toggles">
-      <span class="glabel">Lang</span>
-      <button class="fbtn lang-btn" data-lang="ja">日本語</button>
-      <button class="fbtn lang-btn" data-lang="en">EN</button>
     </div>
     <span class="fcount"><span id="fcount-num" class="mono">18</span><span class="mono"> / </span><span id="fcount-total" class="mono">18</span><span id="fcount-suffix"> 件表示</span></span>
   </div>
