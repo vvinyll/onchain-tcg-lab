@@ -307,6 +307,40 @@
   tbody td:first-child{ color:var(--ink); font-weight:700; }
   tbody tr:hover{ background:var(--surface-2); }
 
+  /* ===== On-chain revenue ranking ===== */
+  .rank-toolbar{ display:flex; flex-wrap:wrap; align-items:center; gap:7px; margin-bottom:14px; }
+  .rank-updated{ margin-left:auto; font-size:11.5px; color:var(--ink-faint); }
+  #rank-table th.num-col, #rank-table td.num-col{ text-align:right; white-space:nowrap; }
+  #rank-table td.num-col{ font-variant-numeric:tabular-nums; font-family: ui-monospace,'SF Mono',Menlo,'Cascadia Mono',Consolas,monospace; font-size:12.5px; }
+  #rank-table td.rank-no{
+    color:var(--ink-faint); font-weight:700; width:44px; text-align:right;
+    font-family: ui-monospace,'SF Mono',Menlo,'Cascadia Mono',Consolas,monospace; font-size:12px;
+  }
+  #rank-table tr.top3 td.rank-no{ color:var(--accent-ink); }
+  .rank-name{ display:flex; align-items:center; gap:9px; min-width:0; }
+  .rank-logo{
+    width:24px; height:24px; border-radius:7px; flex:none; object-fit:cover;
+    border:1px solid var(--line); background:var(--surface-2);
+  }
+  .rank-logo-fb{
+    width:24px; height:24px; border-radius:7px; flex:none;
+    border:1px solid var(--line); background:var(--surface-2);
+    display:flex; align-items:center; justify-content:center;
+    font-size:11px; font-weight:800; color:var(--accent-ink);
+  }
+  .rank-name a{ color:var(--ink); text-decoration:none; font-weight:700; border-bottom:1px solid transparent; }
+  .rank-name a:hover{ border-color:var(--accent); }
+  .tag-listed, .pill-inline{
+    display:inline-block; font-size:10px; font-weight:700; white-space:nowrap;
+    padding:2px 8px; border-radius:999px;
+    background:color-mix(in srgb, var(--mint) 16%, transparent); color:var(--mint);
+  }
+  .pill-inline{ font-size:11px; }
+  .rank-chain{ font-size:12px; color:var(--ink-soft); white-space:nowrap; }
+  .val-neg{ color:var(--risk); }
+  .val-zero{ color:var(--ink-faint); }
+  .rank-state{ text-align:center; color:var(--ink-faint); padding:34px 14px !important; font-size:14px; }
+
   .fair-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
   .fair-card{
     background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:16px;
@@ -407,6 +441,45 @@
     <b>観測メモ ── リンク:</b> Deadstock・Renaiss・BONKUJI・Phygitals・Beezie・Reverseの「公式サイト」リンクには紹介コード(アフィリエイトリンク)が含まれています。それ以外のサービスは通常の公式URLです。
   </div>
 </div>
+
+<section class="block" id="onchain">
+  <div class="wrap">
+    <div class="block-head">
+      <div class="kicker">Live On-Chain Data</div>
+      <h2 data-i18n="s0_title">オンチェーン収益ランキング</h2>
+      <p data-i18n="s0_desc">DefiLlamaの「Physical TCG」カテゴリに登録された全プロトコルの手数料収益。ページを開くたびに最新値を取得している。</p>
+    </div>
+
+    <div class="rank-toolbar">
+      <span class="glabel" data-i18n="rank_sort_label">並び替え</span>
+      <button class="fbtn rank-btn active" data-sort="total30d" data-i18n-key="rank_sort_30d">30日</button>
+      <button class="fbtn rank-btn" data-sort="total7d" data-i18n-key="rank_sort_7d">7日</button>
+      <button class="fbtn rank-btn" data-sort="totalAllTime" data-i18n-key="rank_sort_all">累計</button>
+      <span class="rank-updated mono" id="rank-updated"></span>
+    </div>
+
+    <div class="tbl-wrap">
+      <table id="rank-table">
+        <thead><tr>
+          <th class="num-col">#</th>
+          <th data-i18n="rth_protocol">プロトコル</th>
+          <th data-i18n="rth_chain">チェーン</th>
+          <th class="num-col" data-i18n="rth_24h">24時間</th>
+          <th class="num-col" data-i18n="rth_7d">7日</th>
+          <th class="num-col" data-i18n="rth_30d">30日</th>
+          <th class="num-col" data-i18n="rth_all">累計</th>
+        </tr></thead>
+        <tbody id="rank-body">
+          <tr><td colspan="7" class="rank-state" data-i18n="rank_loading">オンチェーンデータを取得中…</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note-box" style="margin-top:14px;" data-i18n="rank_note">
+      <b>観測メモ ── 数値の性質:</b> 上表はDefiLlamaが集計したプロトコル手数料であり、各社が公表する流通総額(GMV)やARRとは指標が異なる。<span class="pill-inline">本研究所に収録</span>が付いたものは当サイトの一覧に掲載しているサービス。付いていないものはDefiLlama側にのみ登録がある。データ提供: <a href="https://defillama.com/protocols/Physical%20TCG" target="_blank" rel="noopener">DefiLlama</a>
+    </div>
+  </div>
+</section>
 
 <section class="block">
   <div class="wrap">
@@ -601,9 +674,12 @@
   var STR = {
     ja: {
       region_all:"すべて", region_overseas:"海外", region_domestic:"日本",
+      rank_sort_30d:"30日", rank_sort_7d:"7日", rank_sort_all:"累計",
       fcount_suffix:" 件を観測中",
       empty_state:"条件に一致する観測対象がありません。",
       label_record:"観測No.",
+      rank_loading:"オンチェーンデータを取得中…", rank_error:"データを取得できませんでした。直接ご確認ください:",
+      rank_empty:"該当するプロトコルがありません。", rank_listed:"本研究所に収録", rank_updated:"取得: ",
       label_chain:"チェーン", label_brand:"ブランド", label_cc:"クレカ対応", label_followers:"Xフォロワー",
       label_official_site:"公式サイト", label_url_unknown:"公式URL未確認",
       label_logo_alt:"のロゴ",
@@ -612,9 +688,12 @@
     },
     en: {
       region_all:"All", region_overseas:"Overseas", region_domestic:"Japan",
+      rank_sort_30d:"30d", rank_sort_7d:"7d", rank_sort_all:"All time",
       fcount_suffix:" under observation",
       empty_state:"No subjects match these filters.",
       label_record:"OBS. ",
+      rank_loading:"Fetching on-chain data…", rank_error:"Could not fetch the data. Check it directly at",
+      rank_empty:"No protocols found.", rank_listed:"In this lab", rank_updated:"Fetched: ",
       label_chain:"Chain", label_brand:"Brand", label_cc:"Credit Card", label_followers:"X Followers",
       label_official_site:"Official Site", label_url_unknown:"URL unconfirmed",
       label_logo_alt:" logo",
@@ -730,6 +809,23 @@
     cta_title: { ja:"各観測対象の詳細・出典・検証結果", en:"Full profiles, sources, and verification results" },
     cta_desc: { ja:"運営体制、資金調達の一次情報、規制論点の全文は調査記録に収めている。", en:"The source report covers operator details, primary funding sources, and the full regulatory discussion." },
     cta_btn: { ja:"調査記録を開く →", en:"Open the research record →" },
+    s0_title: { ja:"オンチェーン収益ランキング", en:"On-Chain Revenue Ranking" },
+    s0_desc: {
+      ja:"DefiLlamaの「Physical TCG」カテゴリに登録された全プロトコルの手数料収益。ページを開くたびに最新値を取得している。",
+      en:"Protocol fee revenue for every project in DefiLlama's “Physical TCG” category. Fetched fresh each time the page loads."
+    },
+    rank_sort_label: { ja:"並び替え", en:"Sort by" },
+    rth_protocol: { ja:"プロトコル", en:"Protocol" },
+    rth_chain: { ja:"チェーン", en:"Chain" },
+    rth_24h: { ja:"24時間", en:"24h" },
+    rth_7d: { ja:"7日", en:"7d" },
+    rth_30d: { ja:"30日", en:"30d" },
+    rth_all: { ja:"累計", en:"All time" },
+    rank_loading: { ja:"オンチェーンデータを取得中…", en:"Fetching on-chain data…" },
+    rank_note: {
+      ja:'<b>観測メモ ── 数値の性質:</b> 上表はDefiLlamaが集計したプロトコル手数料であり、各社が公表する流通総額(GMV)やARRとは指標が異なる。<span class="pill-inline">本研究所に収録</span>が付いたものは当サイトの一覧に掲載しているサービス。付いていないものはDefiLlama側にのみ登録がある。データ提供: <a href="https://defillama.com/protocols/Physical%20TCG" target="_blank" rel="noopener">DefiLlama</a>',
+      en:'<b>Observation note — what these numbers are:</b> the table shows protocol fees as compiled by DefiLlama, which is a different measure from the GMV or ARR figures the companies themselves publish. Rows marked <span class="pill-inline">In this lab</span> also appear in the directory above; the rest are registered only on DefiLlama. Data: <a href="https://defillama.com/protocols/Physical%20TCG" target="_blank" rel="noopener">DefiLlama</a>'
+    },
     footer_privacy: { ja:"プライバシーポリシー", en:"Privacy Policy" },
     footer_text: {
       ja: '本研究所が独自に調査・検証した記録に基づく。各サービスの公式サイトおよびX上の一次情報を確認したうえで記載しているが、金額・数値・Xフォロワー数はいずれも観測時点のものであり変動し得る。投資助言を目的としたものではない。買い戻し率・確率・決済手段等は必ず各サービスの公式情報を確認のこと。',
@@ -820,6 +916,120 @@
     });
   });
 
+  /* ================= on-chain revenue ranking (DefiLlama) ================= */
+  /* Public endpoint, CORS is open, so the static page can call it directly. */
+  var RANK_URL = "https://api.llama.fi/overview/fees?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true";
+  var rankRows = null;      // null = not loaded yet, [] = loaded but empty
+  var rankFailed = false;
+  var rankSort = "total30d";
+
+  /* Names as DefiLlama spells them, for the protocols this lab already tracks. */
+  var LISTED = {
+    "collector crypt":1, "courtyard":1, "jupiter gacha":1, "beezie":1,
+    "phygitals":1, "monster":1, "nextrare":1, "dyli":1
+  };
+
+  function fmtUsd(v){
+    if (v === null || v === undefined) return "—";
+    var neg = v < 0, a = Math.abs(v), s;
+    if (a >= 1e9)      s = "$" + (a/1e9).toFixed(2) + "B";
+    else if (a >= 1e6) s = "$" + (a/1e6).toFixed(2) + "M";
+    else if (a >= 1e3) s = "$" + (a/1e3).toFixed(1) + "K";
+    else               s = "$" + Math.round(a).toLocaleString("en-US");
+    return neg ? "-" + s : s;
+  }
+  function valClass(v){
+    if (v === null || v === undefined) return "val-zero";
+    if (v < 0) return "val-neg";
+    if (v === 0) return "val-zero";
+    return "";
+  }
+
+  function renderRank(){
+    var body = document.getElementById("rank-body");
+    if (!body) return;
+    var t = STR[lang];
+
+    if (rankFailed){
+      body.innerHTML = '<tr><td colspan="7" class="rank-state">' + esc(t.rank_error) +
+        ' <a href="https://defillama.com/protocols/Physical%20TCG" target="_blank" rel="noopener">DefiLlama</a></td></tr>';
+      return;
+    }
+    if (rankRows === null){
+      body.innerHTML = '<tr><td colspan="7" class="rank-state">' + esc(t.rank_loading) + '</td></tr>';
+      return;
+    }
+    if (!rankRows.length){
+      body.innerHTML = '<tr><td colspan="7" class="rank-state">' + esc(t.rank_empty) + '</td></tr>';
+      return;
+    }
+
+    var rows = rankRows.slice().sort(function(a,b){
+      return (b[rankSort] || 0) - (a[rankSort] || 0);
+    });
+
+    body.innerHTML = rows.map(function(p, i){
+      var listed = LISTED[(p.name || "").toLowerCase()];
+      var chains = (p.chains && p.chains.length) ? p.chains.join(", ") : "—";
+      var initial = (p.name || "?").slice(0,1);
+      var logo = p.logo
+        ? '<img class="rank-logo" src="' + esc(p.logo) + '" alt="" loading="lazy" ' +
+          'onerror="this.outerHTML=\'<span class=&quot;rank-logo-fb&quot;>' + esc(initial) + '</span>\'">'
+        : '<span class="rank-logo-fb">' + esc(initial) + '</span>';
+      var nameCell = p.url
+        ? '<a href="' + esc(p.url) + '" target="_blank" rel="noopener">' + esc(p.displayName || p.name) + '</a>'
+        : '<span style="font-weight:700;">' + esc(p.displayName || p.name) + '</span>';
+      var badge = listed ? ' <span class="tag-listed">' + esc(t.rank_listed) + '</span>' : '';
+      return '<tr' + (i < 3 ? ' class="top3"' : '') + '>' +
+        '<td class="rank-no">' + (i+1) + '</td>' +
+        '<td><div class="rank-name">' + logo + '<span>' + nameCell + badge + '</span></div></td>' +
+        '<td class="rank-chain">' + esc(chains) + '</td>' +
+        '<td class="num-col ' + valClass(p.total24h) + '">' + fmtUsd(p.total24h) + '</td>' +
+        '<td class="num-col ' + valClass(p.total7d) + '">' + fmtUsd(p.total7d) + '</td>' +
+        '<td class="num-col ' + valClass(p.total30d) + '">' + fmtUsd(p.total30d) + '</td>' +
+        '<td class="num-col ' + valClass(p.totalAllTime) + '">' + fmtUsd(p.totalAllTime) + '</td>' +
+      '</tr>';
+    }).join("");
+  }
+
+  function setRankUpdated(){
+    var el = document.getElementById("rank-updated");
+    if (!el || rankRows === null || rankFailed) { if (el) el.textContent = ""; return; }
+    var d = new Date();
+    var stamp = d.getFullYear() + "-" +
+      String(d.getMonth()+1).padStart(2,"0") + "-" +
+      String(d.getDate()).padStart(2,"0") + " " +
+      String(d.getHours()).padStart(2,"0") + ":" +
+      String(d.getMinutes()).padStart(2,"0");
+    el.textContent = STR[lang].rank_updated + stamp;
+  }
+
+  function loadRank(){
+    fetch(RANK_URL, { cache: "no-store" })
+      .then(function(r){ if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+      .then(function(d){
+        var all = (d && d.protocols) || [];
+        rankRows = all.filter(function(p){ return p.category === "Physical TCG"; });
+        renderRank();
+        setRankUpdated();
+      })
+      .catch(function(){
+        rankFailed = true;
+        renderRank();
+        setRankUpdated();
+      });
+  }
+
+  document.querySelectorAll(".rank-btn").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      rankSort = btn.getAttribute("data-sort");
+      document.querySelectorAll(".rank-btn").forEach(function(b){
+        b.classList.toggle("active", b === btn);
+      });
+      renderRank();
+    });
+  });
+
   /* ================= lang toggle ================= */
   document.querySelectorAll(".lang-btn").forEach(function(btn){
     btn.addEventListener("click", function(){
@@ -830,6 +1040,8 @@
       renderCompare();
       renderFairness();
       renderRegulation();
+      renderRank();
+      setRankUpdated();
       applyFilter();
     });
   });
@@ -841,6 +1053,8 @@
   renderFairness();
   renderRegulation();
   applyFilter();
+  renderRank();
+  loadRank();
 })();
 </script>
 </body>
