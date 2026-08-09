@@ -354,6 +354,9 @@
     padding:36px 0 60px; font-size:12px; color:var(--ink-faint); border-top:1px solid var(--line);
   }
   footer p{ max-width:70ch; }
+  footer .footer-links{ margin-top:14px; }
+  footer .footer-links a{ color:var(--accent-ink); text-decoration:none; border-bottom:1px solid transparent; }
+  footer .footer-links a:hover{ border-color:currentColor; }
 </style>
 </head>
 <body>
@@ -463,6 +466,7 @@
 <footer>
   <div class="wrap">
     <p data-i18n="footer_text">本研究所が独自に調査・検証した記録に基づく。各サービスの公式サイトおよびX上の一次情報を確認したうえで記載しているが、金額・数値・Xフォロワー数はいずれも観測時点のものであり変動し得る。投資助言を目的としたものではない。買い戻し率・確率・決済手段等は必ず各サービスの公式情報を確認のこと。</p>
+    <p class="footer-links"><a href="/privacy" data-i18n="footer_privacy">プライバシーポリシー</a></p>
   </div>
 </footer>
 
@@ -726,6 +730,7 @@
     cta_title: { ja:"各観測対象の詳細・出典・検証結果", en:"Full profiles, sources, and verification results" },
     cta_desc: { ja:"運営体制、資金調達の一次情報、規制論点の全文は調査記録に収めている。", en:"The source report covers operator details, primary funding sources, and the full regulatory discussion." },
     cta_btn: { ja:"調査記録を開く →", en:"Open the research record →" },
+    footer_privacy: { ja:"プライバシーポリシー", en:"Privacy Policy" },
     footer_text: {
       ja: '本研究所が独自に調査・検証した記録に基づく。各サービスの公式サイトおよびX上の一次情報を確認したうえで記載しているが、金額・数値・Xフォロワー数はいずれも観測時点のものであり変動し得る。投資助言を目的としたものではない。買い戻し率・確率・決済手段等は必ず各サービスの公式情報を確認のこと。',
       en: 'All entries are based on the lab’s own research and verification, checked against each service’s official site and primary sources on X. Amounts, figures, and X follower counts reflect the time of observation and may change. This is not investment advice. Always confirm buyback rates, odds, and payment methods with each service’s official information.'

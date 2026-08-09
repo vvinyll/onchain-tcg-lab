@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>プライバシーポリシー — オンチェーントレカ研究所</title>
+<meta name="description" content="オンチェーントレカ研究所における個人情報の取り扱い、Cookieの利用、アフィリエイトプログラムおよび免責事項について。">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://onchaintcg.xyz/privacy">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ctext%20y%3D%22.9em%22%20font-size%3D%2290%22%3E%F0%9F%8E%B4%3C%2Ftext%3E%3C%2Fsvg%3E">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="オンチェーントレカ研究所">
+<meta property="og:title" content="プライバシーポリシー — オンチェーントレカ研究所">
+<meta property="og:description" content="個人情報の取り扱い、Cookieの利用、アフィリエイトプログラムおよび免責事項について。">
+<meta property="og:url" content="https://onchaintcg.xyz/privacy">
+<meta property="og:image" content="https://onchaintcg.xyz/ogp.png">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://onchaintcg.xyz/ogp.png">
+<style>
+  /* Light is the default theme. Dark is opt-in via the header toggle. */
+  :root{
+    --bg:#F6F3EF; --bg-2:#EFEAE2; --surface:#FFFFFF; --surface-2:#EEE9E0;
+    --ink:#1D1730; --ink-soft:#564E6E; --ink-faint:#8B839C;
+    --line:#E2DCD2; --line-strong:#CBC2B4;
+    --accent:#D9691E; --accent-ink:#9A4A12;
+    --mint:#0E8F72;
+    --warn:#A5670F; --warn-soft:#FBEEDA;
+    --on-accent:#FFFFFF;
+  }
+  :root[data-theme="dark"]{
+    --bg:#0A0812; --bg-2:#120E1E; --surface:#171226; --surface-2:#1E1830;
+    --ink:#F3F0EA; --ink-soft:#B4ADC4; --ink-faint:#7C7590;
+    --line:#2C2440; --line-strong:#3E3459;
+    --accent:#F0812E; --accent-ink:#FFB374;
+    --mint:#5FE9C8;
+    --warn:#F0B23E; --warn-soft:#332510;
+    --on-accent:#191008;
+  }
+
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; padding:0; }
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:'Hiragino Sans','Yu Gothic Medium','Yu Gothic','Noto Sans JP',-apple-system,BlinkMacSystemFont,sans-serif;
+    line-height:1.85; -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background:var(--accent); color:var(--on-accent); }
+  a{ color:var(--accent-ink); }
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; border-radius:3px; }
+  .mono{ font-family: ui-monospace,'SF Mono',Menlo,'Cascadia Mono',Consolas,monospace; }
+
+  .site-header{
+    position:sticky; top:0; z-index:30;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    padding:13px 24px;
+    background:color-mix(in srgb, var(--bg) 90%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .site-header .brand{
+    display:flex; align-items:center; gap:8px; text-decoration:none;
+    font-family: ui-monospace,'SF Mono',Menlo,'Cascadia Mono',Consolas,monospace;
+    font-size:13px; font-weight:700; color:var(--ink); white-space:nowrap;
+  }
+  .site-header .brand .mark{ color:var(--accent); }
+  .toggles-row{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+  .tgroup{ display:flex; gap:6px; align-items:center; padding-left:12px; border-left:1px solid var(--line-strong); }
+  .tgroup:first-child{ padding-left:0; border-left:none; }
+  .glabel{
+    font-family: ui-monospace,'SF Mono',Menlo,'Cascadia Mono',Consolas,monospace;
+    font-size:11px; color:var(--accent-ink); font-weight:700;
+  }
+  .glabel::before{ content:"["; opacity:.6; margin-right:2px; }
+  .glabel::after{ content:"]"; opacity:.6; margin-left:2px; }
+  .fbtn{
+    border:1px solid var(--line-strong); background:var(--surface); color:var(--ink-soft);
+    padding:7px 14px; border-radius:999px; font-size:12.5px; cursor:pointer;
+    font-family: ui-monospace,'SF Mono',Menlo,'Cascadia Mono',Consolas,monospace;
+    transition: background .12s ease, color .12s ease, border-color .12s ease, box-shadow .12s ease;
+  }
+  .fbtn:hover{ border-color:var(--accent); color:var(--ink); }
+  .fbtn.active{
+    background:var(--accent); border-color:var(--accent); color:var(--on-accent); font-weight:700;
+    box-shadow:0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent);
+  }
+
+  .wrap{ max-width:760px; margin:0 auto; padding:0 24px; }
+
+  .page-head{ padding:60px 0 34px; border-bottom:1px solid var(--line); }
+  .kicker{
+    font-family: ui-monospace,'SF Mono',Menlo,'Cascadia Mono',Consolas,monospace;
+    font-size:11.5px; letter-spacing:.08em; color:var(--accent-ink); font-weight:700; margin-bottom:12px;
+  }
+  .kicker::before{ content:"["; opacity:.6; margin-right:3px; }
+  .kicker::after{ content:"]"; opacity:.6; margin-left:3px; }
+  h1{ font-size:clamp(28px,4.4vw,38px); font-weight:900; letter-spacing:-.015em; line-height:1.3; margin:0; text-wrap:balance; }
+  .meta{
+    margin-top:14px; font-size:12.5px; color:var(--ink-faint);
+    font-family: ui-monospace,'SF Mono',Menlo,'Cascadia Mono',Consolas,monospace;
+  }
+
+  main{ padding:14px 0 30px; }
+  section{ padding:30px 0; border-bottom:1px solid var(--line); }
+  section:last-of-type{ border-bottom:none; }
+  h2{ font-size:19px; font-weight:800; margin:0 0 12px; line-height:1.45; }
+  h2 .n{
+    color:var(--accent-ink); margin-right:9px;
+    font-family: ui-monospace,'SF Mono',Menlo,'Cascadia Mono',Consolas,monospace; font-size:15px;
+  }
+  h3{ font-size:15px; font-weight:800; margin:20px 0 8px; }
+  p{ margin:0 0 1em; color:var(--ink-soft); font-size:15px; }
+  p:last-child{ margin-bottom:0; }
+  ul{ margin:0 0 1em; padding-left:1.3em; color:var(--ink-soft); font-size:15px; }
+  li{ margin-bottom:.45em; }
+  strong{ color:var(--ink); font-weight:700; }
+
+  .todo{
+    background:var(--warn-soft); border:1px dashed var(--warn); border-radius:10px;
+    padding:16px 18px; margin:16px 0; font-size:14px; color:var(--ink);
+  }
+  .todo .label{
+    display:block; font-weight:800; color:var(--warn); font-size:12.5px;
+    letter-spacing:.03em; margin-bottom:6px;
+  }
+
+  .callout{
+    background:var(--surface-2); border-radius:10px; padding:16px 18px; margin:16px 0;
+    font-size:14px; color:var(--ink-soft);
+  }
+
+  footer{
+    padding:32px 0 64px; border-top:1px solid var(--line);
+    font-size:12.5px; color:var(--ink-faint);
+  }
+  footer a{ color:var(--ink-soft); }
+  .backlink{
+    display:inline-flex; align-items:center; gap:6px; text-decoration:none;
+    font-size:13px; font-weight:700; color:var(--accent-ink);
+    border:1px solid color-mix(in srgb, var(--accent) 45%, var(--line-strong));
+    border-radius:999px; padding:7px 16px; margin-bottom:20px;
+    transition: background .15s ease, color .15s ease;
+  }
+  .backlink:hover{ background:var(--accent); color:var(--on-accent); }
+
+  [lang="en"] .ja, [lang="ja"] .en{ display:none; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a class="brand" href="/"><span class="mark">🎴</span><span class="ja">オンチェーントレカ研究所</span><span class="en">On-Chain TCG Research Lab</span></a>
+  <div class="toggles-row">
+    <div class="tgroup">
+      <span class="glabel">Theme</span>
+      <button class="fbtn theme-btn" data-theme-choice="light">Light</button>
+      <button class="fbtn theme-btn" data-theme-choice="dark">Dark</button>
+    </div>
+    <div class="tgroup">
+      <span class="glabel">Lang</span>
+      <button class="fbtn lang-btn" data-lang="ja">日本語</button>
+      <button class="fbtn lang-btn" data-lang="en">EN</button>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="page-head">
+    <div class="kicker">Privacy Policy</div>
+    <h1><span class="ja">プライバシーポリシー</span><span class="en">Privacy Policy</span></h1>
+    <div class="meta"><span class="ja">制定日: 2026年8月9日</span><span class="en">Effective: August 9, 2026</span></div>
+  </div>
+
+  <main>
+
+    <!-- ===== 運営者情報 ===== -->
+    <section>
+      <h2><span class="n">01</span><span class="ja">運営者情報</span><span class="en">Site Operator</span></h2>
+      <div class="ja">
+        <div class="todo">
+          <span class="label">⚠ 公開前に記入してください</span>
+          運営者名(個人名または屋号・法人名)と連絡先を、下記の該当箇所に記入してください。この枠は記入後に削除します。
+        </div>
+        <ul>
+          <li>サイト名: オンチェーントレカ研究所(onchaintcg.xyz)</li>
+          <li>運営者: <strong>【運営者名を記入】</strong></li>
+          <li>連絡先: <strong>【メールアドレスまたは問い合わせ先を記入】</strong></li>
+        </ul>
+      </div>
+      <div class="en">
+        <div class="todo">
+          <span class="label">⚠ Fill in before publishing</span>
+          Add the operator name and a contact address below, then delete this box.
+        </div>
+        <ul>
+          <li>Site: On-Chain TCG Research Lab (onchaintcg.xyz)</li>
+          <li>Operator: <strong>[operator name]</strong></li>
+          <li>Contact: <strong>[email or contact address]</strong></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== 取得する情報 ===== -->
+    <section>
+      <h2><span class="n">02</span><span class="ja">取得する情報</span><span class="en">Information We Collect</span></h2>
+      <div class="ja">
+        <p>当サイトは、閲覧のみでご利用いただけます。氏名・住所・電話番号などを入力していただく機能はなく、<strong>これらの個人情報を直接取得することはありません</strong>。</p>
+        <p>一方、ウェブサイトの運営上、以下の情報が自動的に記録されます。</p>
+        <ul>
+          <li>IPアドレス</li>
+          <li>ブラウザの種類・バージョン、OS</li>
+          <li>アクセス日時、閲覧したページ</li>
+          <li>参照元(リファラー)</li>
+        </ul>
+        <p>これらはホスティング事業者である Cloudflare, Inc. のサーバーログとして記録されるもので、セキュリティ確保および障害対応の目的で利用されます。同社の取り扱いについては <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflareのプライバシーポリシー</a> をご確認ください。</p>
+      </div>
+      <div class="en">
+        <p>This site is browse-only. There are no forms that ask for your name, address, or phone number, and <strong>we do not directly collect such personal information</strong>.</p>
+        <p>However, the following is recorded automatically as part of normal site operation:</p>
+        <ul>
+          <li>IP address</li>
+          <li>Browser type and version, operating system</li>
+          <li>Date and time of access, pages viewed</li>
+          <li>Referring URL</li>
+        </ul>
+        <p>These are recorded as server logs by our hosting provider, Cloudflare, Inc., and are used for security and troubleshooting. See the <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare Privacy Policy</a> for details on their handling.</p>
+      </div>
+    </section>
+
+    <!-- ===== Cookie / ローカルストレージ ===== -->
+    <section>
+      <h2><span class="n">03</span><span class="ja">Cookie・ローカルストレージの利用</span><span class="en">Cookies and Local Storage</span></h2>
+      <div class="ja">
+        <p>当サイトは、表示テーマ(ライト／ダーク)と表示言語(日本語／英語)の選択を記憶するために、お使いのブラウザの<strong>ローカルストレージ</strong>を使用しています。</p>
+        <p>この情報はお使いの端末内にのみ保存され、当サイトのサーバーや第三者に送信されることはありません。個人を識別する目的では使用していません。ブラウザの設定からいつでも削除できます。</p>
+      </div>
+      <div class="en">
+        <p>This site uses your browser's <strong>local storage</strong> to remember your display theme (light/dark) and language (Japanese/English) preferences.</p>
+        <p>This information is stored only on your own device and is never transmitted to our servers or to any third party. It is not used to identify individuals, and you can clear it at any time through your browser settings.</p>
+      </div>
+    </section>
+
+    <!-- ===== アフィリエイト ===== -->
+    <section>
+      <h2><span class="n">04</span><span class="ja">アフィリエイトプログラムについて</span><span class="en">Affiliate Programs</span></h2>
+      <div class="ja">
+        <p>当サイトに掲載しているサービスのうち一部については、<strong>紹介プログラム(アフィリエイトリンク)を利用しています</strong>。当該リンク経由で読者が各サービスに登録・利用した場合、当サイトが紹介料を受け取ることがあります。</p>
+        <p>該当するリンクは、一覧ページ下部の注記で明示しています。</p>
+        <p>掲載の可否、順序、評価内容は紹介料の有無によって左右されません。ただし、当サイトが紹介料を受け取る立場にあることを踏まえ、各サービスの利用可否はご自身の判断でお決めください。</p>
+        <p>紹介リンクを経由した場合、リンク先のサービスにおいて、どの経路から訪問したかを識別するためのCookie等が設定されることがあります。これらは各サービスが管理するもので、当サイトは内容を把握しておりません。取り扱いについてはリンク先各社のプライバシーポリシーをご確認ください。</p>
+      </div>
+      <div class="en">
+        <p>Some of the services listed on this site are covered by <strong>referral (affiliate) programs</strong>. If you register for or use a service through one of those links, this site may receive a referral fee.</p>
+        <p>The affected links are identified in the note at the bottom of the directory page.</p>
+        <p>Whether a service is listed, where it appears, and how it is described are not influenced by referral arrangements. That said, please make your own judgment about whether to use any service, bearing in mind that this site may be compensated.</p>
+        <p>When you follow a referral link, the destination service may set cookies or similar identifiers to record where the visit came from. These are controlled by that service, not by us. Please refer to each destination's own privacy policy.</p>
+      </div>
+    </section>
+
+    <!--
+      ===================================================================
+      広告・アクセス解析を導入したら、下のコメントを外して公開してください。
+      現時点では当サイトに Google AdSense / Google Analytics は
+      設置されていないため、事実と異なる記載を避けて無効化しています。
+
+      When you install ad serving or analytics, uncomment the block below.
+      Neither Google AdSense nor Google Analytics is installed at present,
+      so these sections are disabled to avoid inaccurate statements.
+      ===================================================================
+
+    <section>
+      <h2><span class="n">05</span><span class="ja">アクセス解析ツールについて</span><span class="en">Analytics</span></h2>
+      <div class="ja">
+        <p>当サイトでは、サイトの改善のためにGoogle Analytics(Google LLC提供)を利用しています。Google Analyticsはトラフィックデータの収集のためにCookieを使用しており、このデータは匿名で収集され、個人を特定するものではありません。</p>
+        <p>この機能はブラウザのCookieを無効にすることで収集を拒否できます。詳細は <a href="https://marketingplatform.google.com/about/analytics/terms/jp/" target="_blank" rel="noopener">Google Analytics利用規約</a> および <a href="https://policies.google.com/privacy?hl=ja" target="_blank" rel="noopener">Googleのプライバシーポリシー</a> をご確認ください。</p>
+      </div>
+      <div class="en">
+        <p>This site uses Google Analytics (provided by Google LLC) to improve the site. Google Analytics uses cookies to collect traffic data. This data is collected anonymously and does not identify individuals.</p>
+        <p>You can opt out by disabling cookies in your browser. See the <a href="https://marketingplatform.google.com/about/analytics/terms/us/" target="_blank" rel="noopener">Google Analytics Terms of Service</a> and the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a> for details.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="n">06</span><span class="ja">第三者配信の広告サービスについて</span><span class="en">Third-Party Advertising</span></h2>
+      <div class="ja">
+        <p>当サイトでは、第三者配信の広告サービス(Google AdSense)を利用しています。</p>
+        <p>Googleなどの第三者配信事業者は、Cookieを使用して、ユーザーが当サイトや他のサイトに過去にアクセスした際の情報に基づいて広告を配信します。</p>
+        <p>Googleが広告Cookieを使用することにより、ユーザーは <a href="https://adssettings.google.com/authenticated" target="_blank" rel="noopener">広告設定</a> でパーソナライズ広告を無効にできます。また <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener">www.aboutads.info</a> で第三者配信事業者のCookieを無効にできます。</p>
+      </div>
+      <div class="en">
+        <p>This site uses a third-party ad service (Google AdSense).</p>
+        <p>Third-party vendors, including Google, use cookies to serve ads based on your prior visits to this and other websites.</p>
+        <p>You may opt out of personalized advertising via <a href="https://adssettings.google.com/authenticated" target="_blank" rel="noopener">Google Ads Settings</a>, or opt out of third-party vendor cookies at <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener">www.aboutads.info</a>.</p>
+      </div>
+    </section>
+
+    -->
+
+    <!-- ===== 免責事項 ===== -->
+    <section>
+      <h2><span class="n">05</span><span class="ja">免責事項</span><span class="en">Disclaimer</span></h2>
+      <div class="ja">
+        <p>当サイトに掲載する情報は、各サービスの公式サイトおよびX上の一次情報を確認したうえで記載していますが、<strong>その正確性・完全性・最新性を保証するものではありません</strong>。金額・数値・フォロワー数等はいずれも観測時点のものであり、変動します。</p>
+        <p>当サイトは<strong>投資助言・勧誘を目的としたものではありません</strong>。掲載サービスの利用にあたっては、買い戻し率・排出確率・決済手段・利用規約等を必ず各サービスの公式情報でご確認ください。</p>
+        <p>当サイトの情報に基づいて利用者が行った判断・行動によって生じた損害について、運営者は一切の責任を負いません。</p>
+        <p>当サイトからリンクした外部サイトの内容および、そこで提供されるサービスについても、運営者は責任を負いません。</p>
+      </div>
+      <div class="en">
+        <p>Information on this site is compiled after checking each service's official site and primary sources on X, but <strong>we make no guarantee as to its accuracy, completeness, or currency</strong>. Amounts, figures, and follower counts reflect the time of observation and will change.</p>
+        <p>This site is <strong>not investment advice or a solicitation</strong>. Before using any listed service, always confirm buyback rates, odds, payment methods, and terms of service with that service's own official information.</p>
+        <p>The operator accepts no liability for any loss arising from decisions or actions taken based on information on this site.</p>
+        <p>The operator is likewise not responsible for the content of external sites linked from here, or for the services offered on them.</p>
+      </div>
+    </section>
+
+    <!-- ===== 著作権 ===== -->
+    <section>
+      <h2><span class="n">06</span><span class="ja">著作権について</span><span class="en">Copyright</span></h2>
+      <div class="ja">
+        <p>当サイトに掲載している各サービスのロゴおよび名称は、それぞれの権利者に帰属します。当サイトでは各サービスを識別する目的でこれらを引用しています。</p>
+        <p>当サイトが独自に作成した文章・調査結果・図表の著作権は運営者に帰属します。引用の範囲を超える無断転載はご遠慮ください。</p>
+        <p>権利者の方で掲載に問題がある場合は、上記連絡先までご連絡ください。速やかに対応いたします。</p>
+      </div>
+      <div class="en">
+        <p>The logos and names of the services listed here belong to their respective owners. They are reproduced solely to identify each service.</p>
+        <p>Copyright in the text, research, and tables originally produced for this site belongs to the operator. Please do not reproduce beyond the scope of fair quotation.</p>
+        <p>If you are a rights holder and object to any material here, please contact us at the address above and we will respond promptly.</p>
+      </div>
+    </section>
+
+    <!-- ===== 改定 ===== -->
+    <section>
+      <h2><span class="n">07</span><span class="ja">本ポリシーの変更</span><span class="en">Changes to This Policy</span></h2>
+      <div class="ja">
+        <p>本ポリシーの内容は、法令の変更や当サイトの運用形態の変更に応じて、予告なく改定される場合があります。改定後の内容は当ページに掲載した時点で効力を生じるものとします。</p>
+        <div class="callout">日本語版と英語版の内容に相違がある場合は、日本語版を正とします。</div>
+      </div>
+      <div class="en">
+        <p>This policy may be revised without prior notice in response to changes in law or in how this site operates. Revisions take effect when posted on this page.</p>
+        <div class="callout">If the Japanese and English versions differ, the Japanese version prevails.</div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <a class="backlink" href="/"><span class="ja">一覧に戻る</span><span class="en">Back to the directory</span></a>
+    <p style="margin:0;">© 2026 <span class="ja">オンチェーントレカ研究所</span><span class="en">On-Chain TCG Research Lab</span></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  /* Light is the default theme; dark is remembered only if the visitor picks it. */
+  var storedTheme = localStorage.getItem("theme");
+  if (storedTheme) document.documentElement.setAttribute("data-theme", storedTheme);
+
+  function applyThemeUI(){
+    var effective = localStorage.getItem("theme") || "light";
+    document.querySelectorAll(".theme-btn").forEach(function(b){
+      b.classList.toggle("active", b.getAttribute("data-theme-choice") === effective);
+    });
+  }
+  document.querySelectorAll(".theme-btn").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var choice = btn.getAttribute("data-theme-choice");
+      document.documentElement.setAttribute("data-theme", choice);
+      localStorage.setItem("theme", choice);
+      applyThemeUI();
+    });
+  });
+
+  /* Language: .ja / .en blocks are shown via the root lang attribute. */
+  var lang = localStorage.getItem("lang") || "ja";
+  function applyLang(){
+    document.documentElement.setAttribute("lang", lang);
+    document.title = (lang === "en")
+      ? "Privacy Policy — On-Chain TCG Research Lab"
+      : "プライバシーポリシー — オンチェーントレカ研究所";
+    document.querySelectorAll(".lang-btn").forEach(function(b){
+      b.classList.toggle("active", b.getAttribute("data-lang") === lang);
+    });
+  }
+  document.querySelectorAll(".lang-btn").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      lang = btn.getAttribute("data-lang");
+      localStorage.setItem("lang", lang);
+      applyLang();
+    });
+  });
+
+  applyThemeUI();
+  applyLang();
+})();
+</script>
+</body>
+</html>
