@@ -135,16 +135,8 @@
   @keyframes holo-shift{ 0%,100%{ background-position:0% 50%; } 50%{ background-position:100% 50%; } }
 
   .hero-lede{
-    font-size:17.5px; color:var(--ink-soft); max-width:58ch; margin:0 0 34px;
+    font-size:17.5px; color:var(--ink-soft); max-width:58ch; margin:0;
   }
-  .hero-stats{
-    display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-    gap:1px; background:var(--line); border:1px solid var(--line); border-radius:14px;
-    overflow:hidden; max-width:680px;
-  }
-  .hero-stats div{ background:color-mix(in srgb, var(--surface) 92%, transparent); padding:16px 18px; }
-  .hero-stats .num{ font-size:22px; font-weight:800; font-family: ui-monospace,'SF Mono',Menlo,'Cascadia Mono',Consolas,monospace; }
-  .hero-stats .lbl{ font-size:12px; color:var(--ink-faint); margin-top:3px; }
 
   /* ===== Site header ===== */
   .site-header{
@@ -387,12 +379,6 @@
     <div class="eyebrow"><span class="dot"></span>ON-CHAIN TCG RESEARCH LAB</div>
     <h1 class="hero-title" data-i18n="hero_title">オンチェーン<span class="holo">トレカ研究所</span></h1>
     <p class="hero-lede" data-i18n="hero_lede">ポケモンカードを軸に、実物カードをNFT化してガチャ／オリパ形式で販売するサービスを継続観測・記録する研究所。対応チェーン・取扱ブランド・決済手段・Xフォロワー数まで、同じものさしで横断比較できる。</p>
-    <div class="hero-stats">
-      <div><div class="num mono">18</div><div class="lbl" data-i18n="stat_services">観測対象数</div></div>
-      <div><div class="num mono">$324M</div><div class="lbl" data-i18n="stat_volume">市場規模(2026年6月観測)</div></div>
-      <div><div class="num mono">14</div><div class="lbl" data-i18n="stat_verified">一次情報で検証済み</div></div>
-      <div><div class="num mono">0</div><div class="lbl" data-i18n="stat_caution">未検証・要観察</div></div>
-    </div>
   </div>
 </div>
 
@@ -718,10 +704,6 @@
       ja: 'ポケモンカードを軸に、実物カードをNFT化してガチャ／オリパ形式で販売するサービスを継続観測・記録する研究所。対応チェーン・取扱ブランド・決済手段・Xフォロワー数まで、同じものさしで横断比較できる。',
       en: 'A research lab tracking services that tokenize physical trading cards — mostly Pokémon — and sell them as gacha/mystery packs. Compare every listing side by side on chain, supported brands, payment methods, and X follower count.'
     },
-    stat_services: { ja:"観測対象数", en:"Subjects observed" },
-    stat_volume: { ja:"市場規模(2026年6月観測)", en:"Market size (obs. Jun 2026)" },
-    stat_verified: { ja:"一次情報で検証済み", en:"Primary-source verified" },
-    stat_caution: { ja:"未検証・要観察", en:"Unverified / watchlist" },
     filter_region_label: { ja:"地域", en:"Region" },
     note_followers: {
       ja: '<b>Xフォロワー数について:</b> 「※直接確認済み」は公式Xアカウントを実際に開いて取得した数値。「※検索時点」はWeb検索のスナップショット情報に基づく参考値で、実際の最新値とは差がある可能性がある。「Xアカウント不明」は公式アカウント自体を特定できなかったもの(類似名の別アカウントとの混同を避けるため、確証のない数値は記載していない)。',
