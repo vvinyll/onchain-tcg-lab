@@ -398,14 +398,6 @@
       <button class="fbtn" data-filter="region" data-value="海外" data-i18n-key="region_overseas">海外</button>
       <button class="fbtn" data-filter="region" data-value="国内" data-i18n-key="region_domestic">国内</button>
     </div>
-    <div class="filter-group">
-      <span class="glabel" data-i18n="filter_status_label">状況</span>
-      <button class="fbtn active" data-filter="status" data-value="all" data-i18n-key="status_all">すべて</button>
-      <button class="fbtn" data-filter="status" data-value="ok" data-i18n-key="status_ok">稼働中</button>
-      <button class="fbtn" data-filter="status" data-value="beta" data-i18n-key="status_beta">ベータ・限定</button>
-      <button class="fbtn" data-filter="status" data-value="warn" data-i18n-key="status_warn">縮小傾向</button>
-      <button class="fbtn" data-filter="status" data-value="risk" data-i18n-key="status_risk">要警戒・終了</button>
-    </div>
     <span class="fcount"><span id="fcount-num" class="mono">18</span><span class="mono"> / </span><span id="fcount-total" class="mono">18</span><span id="fcount-suffix"> 件表示</span></span>
   </div>
 </div>
@@ -613,7 +605,6 @@
   var STR = {
     ja: {
       region_all:"すべて", region_overseas:"海外", region_domestic:"国内",
-      status_all:"すべて", status_ok:"稼働中", status_beta:"ベータ・限定", status_warn:"縮小傾向", status_risk:"要警戒・終了",
       fcount_suffix:" 件表示",
       empty_state:"条件に一致するサービスがありません。",
       label_chain:"チェーン", label_brand:"ブランド", label_cc:"クレカ対応", label_followers:"Xフォロワー",
@@ -623,7 +614,6 @@
     },
     en: {
       region_all:"All", region_overseas:"Overseas", region_domestic:"Japan",
-      status_all:"All", status_ok:"Live", status_beta:"Beta/Limited", status_warn:"Declining", status_risk:"Caution/Closed",
       fcount_suffix:" shown",
       empty_state:"No services match these filters.",
       label_chain:"Chain", label_brand:"Brand", label_cc:"Credit Card", label_followers:"X Followers",
@@ -674,15 +664,13 @@
     grid.innerHTML = html;
   }
 
-  var state = { region:"all", status:"all" };
+  var state = { region:"all" };
 
   function applyFilter(){
     var entries = document.querySelectorAll("#grid .entry");
     var visible = 0;
     entries.forEach(function(el){
-      var matchRegion = state.region === "all" || el.getAttribute("data-region") === state.region;
-      var matchStatus = state.status === "all" || el.getAttribute("data-status") === state.status;
-      var show = matchRegion && matchStatus;
+      var show = state.region === "all" || el.getAttribute("data-region") === state.region;
       el.classList.toggle("hidden", !show);
       if (show) visible++;
     });
@@ -720,7 +708,6 @@
     stat_verified: { ja:"X一次情報で確認済み", en:"Verified via X (primary)" },
     stat_caution: { ja:"未確認・要注意", en:"Unverified / caution" },
     filter_region_label: { ja:"地域", en:"Region" },
-    filter_status_label: { ja:"状況", en:"Status" },
     note_followers: {
       ja: '<b>Xフォロワー数について:</b> 「※直接確認済み」は公式Xアカウントを実際に開いて取得した数値。「※検索時点」はWeb検索のスナップショット情報に基づく参考値で、実際の最新値とは差がある可能性がある。「Xアカウント不明」は公式アカウント自体を特定できなかったもの(類似名の別アカウントとの混同を避けるため、確証のない数値は記載していない)。',
       en: '<b>About X follower counts:</b> "*verified directly" means the official X account was opened and read directly. "*as of search" is a reference figure from web-search snapshots and may differ from the current live count. "Account unknown" means the official account itself could not be identified (to avoid confusion with similarly-named accounts, unconfirmed figures are not listed).'
