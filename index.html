@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>オンチェーントレカ研究所</title>
 <meta name="description" content="実物カードをNFT化してガチャ／オリパ形式で販売するオンチェーンサービスを横断比較。対応チェーン・取扱ブランド・決済手段・Xフォロワー数を同じ基準で並べ、オンチェーン収益ランキングは常に最新値を表示。">
 <link rel="canonical" href="https://onchaintcg.xyz/">
@@ -186,6 +186,102 @@
   }
   .fcount{ margin-left:auto; font-size:12.5px; color:var(--ink-faint); font-family: ui-monospace,'SF Mono',Menlo,'Cascadia Mono',Consolas,monospace; }
   .filter-group.toggles{ padding-left:12px; border-left:1px solid var(--line-strong); }
+
+
+  /* ===== iOS / touch baseline ===== */
+  html{ -webkit-text-size-adjust:100%; }
+  body{ -webkit-tap-highlight-color:transparent; }
+  a, button{ touch-action:manipulation; }
+  .tbl-wrap{ -webkit-overflow-scrolling:touch; overscroll-behavior-x:contain; }
+  /* respect the notch / Dynamic Island / home indicator */
+  .site-header{
+    padding-left:max(24px, env(safe-area-inset-left));
+    padding-right:max(24px, env(safe-area-inset-right));
+    padding-top:calc(13px + env(safe-area-inset-top));
+  }
+  .wrap{
+    padding-left:max(24px, env(safe-area-inset-left));
+    padding-right:max(24px, env(safe-area-inset-right));
+  }
+  footer{ padding-bottom:calc(60px + env(safe-area-inset-bottom)); }
+
+  /* pointer-less devices: honour Apple's 44pt minimum hit area */
+  @media (hover:none) and (pointer:coarse){
+    .fbtn{ min-height:44px; }
+    .entry .visit, .entry .xlink{ min-height:44px; }
+    .cta-report a.btn{ min-height:44px; }
+    .backlink{ min-height:44px; }
+  }
+
+  /* ===== phones ===== */
+  @media (max-width:640px){
+    /* header collapses to a single compact row */
+    .site-header{ padding:8px max(16px, env(safe-area-inset-left)); gap:10px; }
+    .site-header{ padding-top:calc(8px + env(safe-area-inset-top)); }
+    .site-header .brand{ font-size:12px; gap:6px; min-width:0; overflow:hidden; text-overflow:ellipsis; }
+    .toggles-row{ flex-wrap:nowrap; gap:8px; flex:none; }
+    .filter-group.toggles{
+      padding-left:0; border-left:none; gap:0;
+      border:1px solid var(--line-strong); border-radius:999px; overflow:hidden;
+    }
+    .filter-group.toggles .glabel{ display:none; }
+    .filter-group.toggles .fbtn{
+      border:0; border-radius:0; padding:0 12px; height:44px; font-size:11.5px;
+    }
+    .filter-group.toggles .fbtn.active{ box-shadow:none; }
+
+    /* filter bar: one row, no wrapping */
+    .filterbar{ top:60px; padding:9px 0; }
+    .filter-row{ flex-wrap:nowrap; gap:7px; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+    .filter-row::-webkit-scrollbar{ display:none; }
+    .filter-group{ flex-wrap:nowrap; flex:none; }
+    .filter-group .glabel{ display:none; }
+    .filter-group .fbtn{ padding:0 14px; height:44px; }
+    .fcount{ flex:none; white-space:nowrap; padding-left:4px; }
+
+    /* tighter vertical rhythm — the hero was eating a whole screen */
+    .hero{ padding:34px 0 30px; }
+    .hero-lede{ font-size:15.5px; line-height:1.75; }
+    .eyebrow{ font-size:10.5px; padding:5px 12px 5px 9px; margin-bottom:16px; }
+    section.block{ padding:34px 0; }
+    .block-head{ margin-bottom:18px; }
+    .block-head h2{ font-size:20px; }
+    .block-head p{ font-size:14px; }
+    .directory{ padding:22px 0 8px; }
+    .grid{ grid-template-columns:1fr; gap:13px; }
+
+    /* cards */
+    .entry{ padding:16px 15px 14px; border-radius:14px; }
+    .entry h3{ font-size:16px; }
+    .entry .tagline{ font-size:13.5px; }
+    .irow{ font-size:12.5px; }
+    .irow .ilabel{ flex:0 0 68px; }
+    .entry .foot{ gap:8px; }
+    .entry .visit, .entry .xlink{ flex:1 1 auto; justify-content:center; min-height:44px; }
+
+    /* notes, ranking, CTA */
+    .note-box{ padding:14px 16px; font-size:12px; }
+    .rank-toolbar{ gap:6px; }
+    .rank-btn{ min-height:44px; padding:0 15px; }
+    .rank-updated{ width:100%; margin-left:0; order:9; }
+    .fair-grid{ grid-template-columns:1fr; }
+    .cta-report{ padding:20px; }
+    .cta-report a.btn{ width:100%; justify-content:center; }
+    .note-box a, footer a, .rank-name a{ display:inline-block; padding:3px 0; }
+    .cta-report a.btn{ min-height:44px; }
+    .backlink{ min-height:44px; }
+    footer{ padding-top:26px; }
+  }
+
+  @media (max-width:430px){
+    .filter-group.toggles .fbtn{ padding:0 10px; font-size:11px; }
+    .site-header .brand{ font-size:11.5px; }
+    .toggles-row{ gap:7px; }
+  }
+  @media (max-width:360px){
+    .filter-group.toggles .fbtn{ padding:0 8px; font-size:10.5px; }
+    .site-header .brand{ font-size:11px; }
+  }
 
   /* ===== Directory grid ===== */
   .directory{ padding:40px 0 20px; }

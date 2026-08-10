@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>プライバシーポリシー — オンチェーントレカ研究所</title>
 <meta name="description" content="オンチェーントレカ研究所における個人情報の取り扱い、Cookieの利用、アフィリエイトプログラムおよび免責事項について。">
 <meta name="robots" content="index, follow">
@@ -92,6 +92,50 @@
   }
 
   .wrap{ max-width:760px; margin:0 auto; padding:0 24px; }
+
+  /* ===== iOS / touch baseline ===== */
+  html{ -webkit-text-size-adjust:100%; }
+  body{ -webkit-tap-highlight-color:transparent; }
+  a, button{ touch-action:manipulation; }
+  .site-header{
+    padding-left:max(24px, env(safe-area-inset-left));
+    padding-right:max(24px, env(safe-area-inset-right));
+    padding-top:calc(13px + env(safe-area-inset-top));
+  }
+  .wrap{
+    padding-left:max(24px, env(safe-area-inset-left));
+    padding-right:max(24px, env(safe-area-inset-right));
+  }
+  footer{ padding-bottom:calc(64px + env(safe-area-inset-bottom)); }
+
+  @media (hover:none) and (pointer:coarse){
+    .fbtn, .backlink{ min-height:44px; }
+  }
+
+  @media (max-width:640px){
+    .site-header{ padding:8px max(16px, env(safe-area-inset-left)); gap:10px; }
+    .site-header{ padding-top:calc(8px + env(safe-area-inset-top)); }
+    .site-header .brand{ font-size:12px; gap:6px; min-width:0; overflow:hidden; text-overflow:ellipsis; }
+    .toggles-row{ flex-wrap:nowrap; gap:8px; flex:none; }
+    .tgroup{
+      padding-left:0; border-left:none; gap:0;
+      border:1px solid var(--line-strong); border-radius:999px; overflow:hidden;
+    }
+    .tgroup .glabel{ display:none; }
+    .tgroup .fbtn{ border:0; border-radius:0; padding:0 12px; height:44px; font-size:11.5px; }
+    .tgroup .fbtn.active{ box-shadow:none; }
+
+    .page-head{ padding:32px 0 24px; }
+    h1{ font-size:26px; }
+    section{ padding:24px 0; }
+    h2{ font-size:17.5px; }
+    p, ul{ font-size:14.5px; }
+    .todo, .callout{ padding:14px 16px; font-size:13.5px; }
+    .backlink{ min-height:44px; }
+    footer{ padding-top:26px; }
+  }
+
+
 
   .page-head{ padding:60px 0 34px; border-bottom:1px solid var(--line); }
   .kicker{
