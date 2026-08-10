@@ -209,7 +209,6 @@
   @media (hover:none) and (pointer:coarse){
     .fbtn{ min-height:44px; }
     .entry .visit, .entry .xlink{ min-height:44px; }
-    .cta-report a.btn{ min-height:44px; }
     .backlink{ min-height:44px; }
   }
 
@@ -265,10 +264,7 @@
     .rank-btn{ min-height:44px; padding:0 15px; }
     .rank-updated{ width:100%; margin-left:0; order:9; }
     .fair-grid{ grid-template-columns:1fr; }
-    .cta-report{ padding:20px; }
-    .cta-report a.btn{ width:100%; justify-content:center; }
     .note-box a, footer a, .rank-name a{ display:inline-block; padding:3px 0; }
-    .cta-report a.btn{ min-height:44px; }
     .backlink{ min-height:44px; }
     footer{ padding-top:26px; }
   }
@@ -466,30 +462,6 @@
   }
   .note-box b{ color:var(--ink); }
 
-  .cta-report{
-    position:relative; overflow:hidden;
-    display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px;
-    background:var(--surface-2); border:1px solid var(--line); border-radius:16px;
-    padding:24px 26px; margin-top:8px;
-  }
-  .cta-report::before{
-    content:""; position:absolute; inset:-60% auto auto -10%; width:60%; height:220%;
-    background:radial-gradient(circle, hsl(var(--glow-1) / .22), transparent 70%);
-    opacity:var(--glow-strength);
-    pointer-events:none;
-  }
-  .cta-report .t{ font-weight:800; font-size:15px; position:relative; }
-  .cta-report .d{ font-size:13px; color:var(--ink-soft); margin-top:3px; position:relative; }
-  .cta-report a.btn{
-    position:relative;
-    display:inline-flex; align-items:center; gap:7px;
-    background:var(--accent); color:var(--on-accent); font-weight:700; font-size:13.5px;
-    padding:11px 20px; border-radius:999px; text-decoration:none; flex:none;
-    transition: transform .15s ease, box-shadow .15s ease;
-    box-shadow:0 0 0 0 color-mix(in srgb, var(--accent) 35%, transparent);
-  }
-  .cta-report a.btn:hover{ transform:translateY(-1px); box-shadow:0 6px 18px -4px color-mix(in srgb, var(--accent) 55%, transparent); }
-
   footer{
     padding:36px 0 60px; font-size:12px; color:var(--ink-faint); border-top:1px solid var(--line);
   }
@@ -552,7 +524,7 @@
       <h2 data-i18n="sp_title">未調査リスト</h2>
       <p data-i18n="sp_desc">DefiLlamaの「Physical TCG」カテゴリを起点に発見したサービス。公式サイトとX、オンチェーンの数値までは確認済みだが、上の一覧と同じ水準の検証は済んでいない。記載内容は暫定値として扱うこと。</p>
     </div>
-    <div class="pending-meta mono"><span id="pending-count">10</span><span data-i18n="sp_count_suffix"> 件</span></div>
+    <div class="pending-meta mono"><span id="pending-count">11</span><span data-i18n="sp_count_suffix"> 件</span></div>
     <div class="grid" id="grid-pending"></div>
   </div>
 </section>
@@ -639,18 +611,6 @@
   </div>
 </section>
 
-<section class="block">
-  <div class="wrap">
-    <div class="cta-report">
-      <div>
-        <div class="t" data-i18n="cta_title">各社の詳細・出典・ファクトチェック結果</div>
-        <div class="d" data-i18n="cta_desc">運営体制、資金調達の一次情報、規制論点の全文は元レポートに収録。</div>
-      </div>
-      <a class="btn" href="https://claude.ai/code/artifact/6ed72937-84fd-4d74-9e93-14844425db3d" target="_blank" rel="noopener" data-i18n="cta_btn">詳細レポートを開く →</a>
-    </div>
-  </div>
-</section>
-
 <footer>
   <div class="wrap">
     <p data-i18n="footer_text">本図鑑が独自に調査・検証した記録に基づく。各サービスの公式サイトおよびX上の一次情報を確認したうえで記載しているが、金額・数値はいずれも観測時点のものであり変動し得る。投資助言を目的としたものではない。買い戻し率・確率・決済手段等は必ず各サービスの公式情報を確認のこと。</p>
@@ -699,13 +659,13 @@
     {no:"08",name:"BONKUJI",x:"bonk_inu",logo:"data:image/png;base64,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",region:"海外",chain:"Solana",status:"ok",statusLabel:"稼働中",
      tagline:"ミームコイン「BONK」エコシステムが展開するTCGガチャ/オリパプラットフォーム。",
      brand:"ポケモンカード(TCG全般)",
-     cc:"不明",
-     url:"https://bonkuji.com/gacha?ref=vinyl",verified:true,taglineEn:"A TCG gacha/oripa platform run by the BONK memecoin ecosystem.",brandEn:"Pokémon cards (TCG in general)",ccEn:"Unknown",statusLabelEn:"Live"},
+     cc:"非対応(USDC決済のみ)",
+     url:"https://bonkuji.com/gacha?ref=vinyl",verified:true,taglineEn:"A TCG gacha/oripa platform run by the BONK memecoin ecosystem.",brandEn:"Pokémon cards (TCG in general)",ccEn:"Not supported (USDC payment only)",statusLabelEn:"Live"},
     {no:"09",name:"Beezie",x:"beezie_io",logo:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAbFBMVEUAAAD/sADSkQAvIAB3UgCLYAAUDgBkRQAJBgADAgDinAAYEAD7rQDsowANCQDxpwBYPAC6gACrdgA0JAA8KQAiGACVZgCCWgBTOQDWlABeQQBHMQBALACicAAmGgAdFADJiwBtSgBLNAC3fwDENZGxAAAAw0lEQVRIie2UyQ6DIBRFAWcZ1YrWqYP//49VJFFXjyZN7IKzPhcecANCnj8nS8rqCz29FRizqM4cV680xyskpC6+aHJsYaSFN6EEH2AaDAT4BPGBawLC9mJ7t3sH6Gnfp8MorZ83E+A/Rs7HWgxPs/w4AU2iLzNNnsQizCV5A7roCmZHKToRqBiYZprlflhZBICOUHi+zsgHrgm0/OhLBQZQsD+1LKGWGlK1lYnNSrj4C3HCTVkd9RWq9Tf6guMP7/khHx5CCOBaoBPtAAAAAElFTkSuQmCC",region:"海外",chain:"Base→Solana展開中",status:"ok",statusLabel:"稼働中・急成長",
      tagline:"「デジタルクロー(UFOキャッチャー)機」がコンセプト。取引高1億ドル超、ARR1.42億ドル。",
      brand:"ポケモンカード、ワンピーススラブ、スニーカー、Labubu等",
-     cc:"対応の可能性あり(一次確証は限定的)",
-     url:"https://beezie.com/r/vinyl",verified:true,taglineEn:"Built around a ‘digital claw machine’ concept. Over $100M in volume and $142M ARR.",brandEn:"Pokémon cards, One Piece slabs, sneakers, Labubu, and more",ccEn:"Possibly supported (primary confirmation limited)",statusLabelEn:"Live · growing fast",chainEn:"Base → expanding to Solana"},
+     cc:"対応(クレカ/デビット/Apple Pay/Google Pay、公式ドキュメントに明記)",
+     url:"https://beezie.com/r/vinyl",verified:true,taglineEn:"Built around a ‘digital claw machine’ concept. Over $100M in volume and $142M ARR.",brandEn:"Pokémon cards, One Piece slabs, sneakers, Labubu, and more",ccEn:"Supported (credit/debit card, Apple Pay, Google Pay — confirmed in official docs)",statusLabelEn:"Live · growing fast",chainEn:"Base → expanding to Solana"},
     {no:"10",name:"Reverse",x:"reverse_tcg",logo:"data:image/jpeg;base64,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",region:"海外",chain:"不明",status:"ok",statusLabel:"稼働中",
      tagline:"日本発、グローバルなコレクター向けを掲げるトレカガチャプラットフォーム。「PIONEER」等の限定パックを定期的にドロップし、100%当選カードをPSA鑑定品として保証。",
      brand:"ポケモンカード",
@@ -729,8 +689,8 @@
     {no:"14",name:"UNIGACHA",x:"unigacha_jp",logo:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAM1BMVEVHcEwiGBXmABLmABLnABIiGBXlABKpChPmABKDDxPmABIkFxXcAxIiGBUhGBUiGBXmABK+DenqAAAAD3RSTlMAXpYvc8jbDbwaUJny6Tsh0ZZRAAAFS0lEQVR4nO1bWZKsOAwsMHgF0/c/7WO3vMsGipiJyk+6QCK1GUn9+fzwww//MwjdaPGi/Gacpqlv3hLPmmnF+JYGetoxvmQFdSgwvURBfyqgXpF/WuAtBowFJv2GfGYsML4h/6PHl13AWOClPGAs0L+SBsT0sgWaVBAy9rwCIAZcC2jV9+rpyIzHAFNfSU5RCwgVt8ydUBELaBAcT8oXwALQ4QAxzxZpoABkWo1AgelJBUwhGI27ix6Kn8ZHY/H0ARMD2pb/cH46KDCGbkZb/uUEzQSRXde2vF3QSUIsStli7/HMN0xNt8oXsuV0GP4ABspbCZ7KdNPoQydPvrogn5GO/8VAWxLwLVf+lQLNJB+i4lcmeOe9nbbl9/WFQHQ0Kf2kwb7NJqDe/DjxARUsBVR1/Eus+FWFLqJAtflJ3PMiKsjzXlOc682PZh+ScJKtrppftMXiF/BT3lqGxmrzR+indEuDczrkYYKMGXSjmmr6SeDpc7hLIvY3YozNeTmUIAaZfjQK0nswtZLuCSZbX9Uu8ENzR5X8oSPRHxPfWaMazFbpVZPVwZVP/UxrgbkqDAF1mZiF4wLTyT6Dm2VDKrS2zq3z90U4OBz0SQ6ELZ/ifMqOGmoX6d45mSRzo7Djr8XmEdYBEkw20MoVvhaHxIPs/JN0aAfAdfjBsXsqy1cnWUH/ee9pvOM+HZafYMBKQMUp5bj79EH3WHYgHgbtFfmzBks0mIrE+rD8OAHymvwZAh6VRVCBVIGCEeDGcgW8k/EiPVWg5L3y7S/TWXi/nNoTSQimAJpPfxgoI1w12ZQCCbijpn6W/v24C8dUQUAAv0f+ooJGD1AIiIDNAKLxPCZwKa8D8ncgB6weuPV2Rihvu/TQRAZUwZWAI4agBoFL9wHUkpWAM4RM9TaXnui1AAusIWCyWOCL/wEKmImBtZiCPH6YXPiXbgQxFlgPAQEFApduhMlCWxUKvO6zDBgX2A50X2fAuMBWhr7NAKO2C3ydAeCDWx3KMMBQKFHAZIGtDqQZoByFVqJ1AEHAEAyk22YAHHuuMApQhmBgwiqALuydUcB73SsMHBYtUIB7rxtgoEAB5OHSU+A2BooVoBgG8D5QrcBtDCC/bwuj4EkFBvEKA5hMCBRQXQbmccgvDOHWAjiM33+TnE5n3icPUw13t/XWEQAB2WMx+MjCVgNwJNwugPcdlWAMzuCyp2JwvEHKh3G4fxbB9spoN7pyA0DhvU4egDTPCTzkLOCecDEQnhPEOkyICaihE99nAd8Fe5sx0N9AuqD/LAxA6O60iQgF2QMhCMKCRguw2+E4YSPkR9DuVx4OgLdkozE/hAGvMpR8xQIbnK1Wr9GGGcG6jQYsQDY2zAm724vZxSGh56AANKeg23h020fkKhBsNZXNzOCkxOJO6KZpNLInACxZ3GuDfcLaPh1sd/PSRgq0XmWnksF2e/lLwGZ5of1CTyi/3RoXtBUaQAeoarfDB1T0qy/e/rHTYdnEyJNfUIYg7KFdmRtb867qEbL1FiUasPp5W0oDdD5w5u01HnzA2RxAjS5FZ3+q1MXw8TBHAwQJ0r3l2rzF1eCPJ1s9zBV/fd4jvI2AwK7UId5fo7hh3uRxsC5weDtjTIQWKNB9qSRCOywDX3f45q8kJgiRXRvcYykugWGwyBbPMNANQ+QLHT3vz6JojesArc8/Poo3ue4yv0HhMhdY5LoLosX3YjDLLhUg2JWydLK6pkLeEN5C5c0qJFZaV/GJPasbdaAhdxgo/4L0DWJNfQOUvSTGL/zrBgBjcwreQAhqJeCHH374D+Af4O34gzjGIfIAAAAASUVORK5CYII=",region:"国内",chain:"Base",status:"ok",statusLabel:"稼働中",
      tagline:"ベルベットジャパン運営のWeb3オンラインガチャEC。抽選結果をBase上に公開し、「100%クーポン還元保証」で実質ハズレなしを実現。",
      brand:"ポケモンカード、LABUBU/POP MART、フィギュア等",
-     cc:"不明",
-     url:"https://www.unigacha.jp/",verified:true,taglineEn:"A Web3 online gacha e-commerce site run by Velvet Japan. Publishes draw results on Base and guarantees no losers via a ‘100% coupon refund.’",brandEn:"Pokémon cards, LABUBU/POP MART, figures, and more",ccEn:"Unknown",statusLabelEn:"Live"},
+     cc:"対応(クレジットカードのみ、2026年4月時点)",
+     url:"https://www.unigacha.jp/",verified:true,taglineEn:"A Web3 online gacha e-commerce site run by Velvet Japan. Publishes draw results on Base and guarantees no losers via a ‘100% coupon refund.’",brandEn:"Pokémon cards, LABUBU/POP MART, figures, and more",ccEn:"Supported (credit card only, as of Apr 2026)",statusLabelEn:"Live"},
     {no:"15",name:"Monster",x:"mnstr",region:"海外",chain:"MegaETH(EVM互換)",status:"ok",statusLabel:"稼働中・活発",
      tagline:"グレーディング済み・保険付き・保管されたポケモンカードを扱うガチャプラットフォーム。$50/$250/$1,250の3階層パック。",
      brand:"ポケモンカード",
@@ -843,12 +803,12 @@
     {pending:true,no:"09",name:"Grail.xyz",x:"GrailCo",logo:"data:image/png;base64,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",region:"海外",chain:"Base",status:"ok",statusLabel:"稼働中・活発",
      tagline:"保管庫のPSA10カードや実使用ジャージを裏付けにした「gトークン」(gPIKA=ピカチュウ、gMJ=ジョーダン等)を1ドルから売買できる。実物への交換も可能。",
      brand:"ポケモンカード、スポーツカード、実使用ジャージ",
-     cc:"不明",
+     cc:"非対応(公式サイトに「現時点でユーザーのクレカ未対応」と明記)",
      url:"https://grail.xyz/",verified:true,
      caution:"ランダム抽選型ではなく、実物を裏付けとしたトークンの分割所有・取引プラットフォーム。他の収録サービスとはモデルが異なる。",
      taglineEn:"Lets you trade “gtokens” (gPIKA for Pikachu, gMJ for Jordan, and so on) from $1, each backed by PSA 10 cards or game-worn jerseys held in an insured vault. Tokens can be redeemed for the physical item.",
      brandEn:"Pokémon cards, sports cards, game-worn jerseys",
-     ccEn:"Unknown",
+     ccEn:"Not supported (official site states user credit cards are not yet accepted)",
      
      statusLabelEn:"Live · active",
      cautionEn:"Not a random-pull service: this is fractional ownership and trading of tokens backed by physical items, a different model from the other entries."},
@@ -864,6 +824,15 @@
      
      statusLabelEn:"Live",
      cautionEn:"Not a physical trading-card service: prizes are the operator's own digital NFT art, and typical pulls are worth only a few dollars — a different proposition from the other entries."},
+    {pending:true,no:"11",name:"Packflip",x:"packflipNFT",logo:"data:image/png;base64,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",region:"海外",chain:"Soneium",status:"beta",statusLabel:"稼働中(情報限定)",
+     tagline:"ポケモンカードのデジタルパックを$1から購入し、当たりを実物のPSA鑑定済みカードやスラブに交換できるRWA(現実資産連動)型サービス。Sonovaのインフラ上で構築。",
+     brand:"ポケモンカード",
+     cc:"不明",
+     url:"https://packflip.xyz/",
+     taglineEn:"An RWA-style service where digital Pokémon card packs starting at \$1 can be redeemed for real PSA-graded cards and slabs, built on Sonova's infrastructure.",
+     brandEn:"Pokémon cards",
+     ccEn:"Unknown",
+     statusLabelEn:"Live (limited information)"},
   ];
 
   var statusClass = {ok:"ok",beta:"beta",warn:"warn",risk:"risk"};
@@ -884,7 +853,7 @@
       label_record:"FILE.", label_candidate:"候補No.",
       rank_loading:"オンチェーンデータを取得中…", rank_error:"データを取得できませんでした。直接ご確認ください:",
       rank_empty:"該当するプロトコルがありません。", rank_listed:"本図鑑に収録", rank_updated:"取得: ",
-      label_chain:"チェーン", label_brand:"ブランド", label_cc:"クレカ対応",
+      label_chain:"チェーン", label_brand:"ブランド", label_cc:"決済方法",
       label_official_site:"公式サイト", label_url_unknown:"公式URL未確認",
       label_logo_alt:"のロゴ",
       label_x_aria:"の公式X",
@@ -898,7 +867,7 @@
       label_record:"FILE.", label_candidate:"CAND. ",
       rank_loading:"Fetching on-chain data…", rank_error:"Could not fetch the data. Check it directly at",
       rank_empty:"No protocols found.", rank_listed:"In this directory", rank_updated:"Fetched: ",
-      label_chain:"Chain", label_brand:"Brand", label_cc:"Credit Card",
+      label_chain:"Chain", label_brand:"Brand", label_cc:"Payment Method",
       label_official_site:"Official Site", label_url_unknown:"URL unconfirmed",
       label_logo_alt:" logo",
       label_x_aria:" on X",
@@ -1012,9 +981,6 @@
     s2_title: { ja:"公正性の担保方法は5パターン", en:"Five ways platforms claim fairness" },
     s2_desc: { ja:"「provably fair」を掲げていても中身は様々。実際にどう検証可能にしているかで分類した。", en:"“Provably fair” means different things on different platforms. Classified here by how verification actually works." },
     s3_title: { ja:"規制論点(要約)", en:"Regulatory notes (summary)" },
-    cta_title: { ja:"各観測対象の詳細・出典・検証結果", en:"Full profiles, sources, and verification results" },
-    cta_desc: { ja:"運営体制、資金調達の一次情報、規制論点の全文は調査記録に収めている。", en:"The source report covers operator details, primary funding sources, and the full regulatory discussion." },
-    cta_btn: { ja:"調査記録を開く →", en:"Open the research record →" },
     sp_title: { ja:"未調査リスト", en:"Pending Verification" },
     sp_desc: {
       ja:"DefiLlamaの「Physical TCG」カテゴリを起点に発見したサービス。公式サイトとX、オンチェーンの数値までは確認済みだが、上の一覧と同じ水準の検証は済んでいない。記載内容は暫定値として扱うこと。",
