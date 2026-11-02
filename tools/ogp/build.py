@@ -18,7 +18,7 @@ CARDS = [
     ('PACKS', [('チェーン', 'Base'), ('開示', 'フルオンチェーン')]),
     ('DYLI', [('チェーン', 'Base'), ('決済', 'USDC')]),
 ]
-CHAINS = ['Solana', 'Base', 'Polygon', 'BNB Chain', 'MegaETH', 'Arbitrum', 'Abstract', 'Robinhood Chain']
+CHAINS = ['Solana', 'Base', 'Polygon', 'BNB Chain', 'MegaETH', 'Arbitrum', 'Abstract', 'Monad', 'Robinhood Chain']
 
 
 def load_entries():
